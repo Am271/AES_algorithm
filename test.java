@@ -1,15 +1,5 @@
-import java.math.BigInteger;
 import java.io.*;
 class Test {
-    public static String toHex(String arg) {
-        try {
-            byte bytes[] = arg.getBytes("UTF-8");
-            return String.format("%-32x", new BigInteger(1, bytes)).replace(' ', '0');
-        }
-        catch(UnsupportedEncodingException g) {
-            return("Caught exception!" + g);
-        }
-}
     public static void main(String args[]) {
         //System.out.println(toHex(args[0]));
         byte[] bytes = new byte[32];
