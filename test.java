@@ -1,17 +1,24 @@
-import java.io.*;
-class Test {
-    public static void main(String args[]) {
-        //System.out.println(toHex(args[0]));
-        byte[] bytes = new byte[32];
+class MyThread extends Thread {
+    private final String name;
+
+    public MyThread(String name) {
+        this.name = name;
+    }
+
+    public void run() {
         try {
-            bytes = args[0].getBytes("UTF-8");
+                System.out.println(name);
+                Thread.sleep(1000);
+            }
+        catch (InterruptedException e) {
+            System.out.println("sleep interrupted");
         }
-        catch(UnsupportedEncodingException x) {
-            System.out.println("Exception caught!");
-        }
-        for(int i=0; i < bytes.length; i++) {
-            System.out.print(String.format("%x ", bytes[i]));
-        }
-        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        Thread t1 = new MyThread("First Thread");
+        Thread t2 = new MyThread("Second Thread");
+        t1.start();
+        t2.start();
     }
 }

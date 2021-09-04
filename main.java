@@ -8,6 +8,7 @@ class AES {
         String text = buf.readLine();
         return(text);
     }
+    //For block cipher , splitting into blocks
     //slicing the given input into blocks of 128 binary bits
     static void process_input(String inp){
         String a = "                ";
